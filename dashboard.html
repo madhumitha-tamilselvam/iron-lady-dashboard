@@ -13,13 +13,13 @@
 <body>
 <div class="dashboard">
 
-  <!-- Navbar -->
+ 
   <div class="navbar">
     <h1>Iron Lady Dashboard</h1>
     <button onclick="logout()">Logout</button>
   </div>
 
-  <!-- Top Cards -->
+ 
   <div class="info-cards">
     <div class="card">
       <i class="fas fa-users"></i>
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <!-- Charts -->
+  
   <div class="charts-grid">
     <div class="chart-card">
       <canvas id="programChart"></canvas>
@@ -56,7 +56,7 @@
     </div>
   </div>
 
-  <!-- Filters -->
+  
   <div class="filters">
     <select id="filterProgram" onchange="renderDashboard()">
       <option value="">All Programs</option>
@@ -72,14 +72,14 @@
     <input type="text" id="searchMember" placeholder="Search name/email" onkeyup="renderDashboard()">
   </div>
 
-  <!-- Program Manager -->
+ 
   <div class="form">
     <input id="programInput" placeholder="Program Name">
     <button onclick="addProgram()">Add Program</button>
     <button onclick="removeProgram()">Remove Program</button>
   </div>
 
-  <!-- Add Member -->
+  
   <div class="form">
     <input id="name" placeholder="Member Name">
     <input id="email" placeholder="Email">
@@ -94,7 +94,7 @@
     <button onclick="addMember()">Add Member</button>
   </div>
 
-  <!-- Table -->
+ 
   <div class="table-container">
     <table id="memberTable"></table>
   </div>
