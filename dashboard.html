@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Iron Lady Dashboard</title>
+
+<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<div class="dashboard">
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>Iron Lady Dashboard</h1>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- Top Cards -->
+  <div class="info-cards">
+    <div class="card">
+      <i class="fas fa-users"></i>
+      <h3>Total Members</h3>
+      <p id="totalMembers">0</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-layer-group"></i>
+      <h3>Total Programs</h3>
+      <p id="totalPrograms">0</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-check-circle"></i>
+      <h3>Mentoring Completed</h3>
+      <p id="mentoringCompleted">0</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-comment"></i>
+      <h3>Total Feedback</h3>
+      <p id="totalFeedback">0</p>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="charts-grid">
+    <div class="chart-card">
+      <canvas id="programChart"></canvas>
+    </div>
+    <div class="chart-card">
+      <canvas id="mentoringChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters">
+    <select id="filterProgram" onchange="renderDashboard()">
+      <option value="">All Programs</option>
+    </select>
+
+    <select id="filterCategory" onchange="renderDashboard()">
+      <option value="">All Categories</option>
+      <option>Professional</option>
+      <option>Entrepreneur</option>
+      <option>Student</option>
+    </select>
+
+    <input type="text" id="searchMember" placeholder="Search name/email" onkeyup="renderDashboard()">
+  </div>
+
+  <!-- Program Manager -->
+  <div class="form">
+    <input id="programInput" placeholder="Program Name">
+    <button onclick="addProgram()">Add Program</button>
+    <button onclick="removeProgram()">Remove Program</button>
+  </div>
+
+  <!-- Add Member -->
+  <div class="form">
+    <input id="name" placeholder="Member Name">
+    <input id="email" placeholder="Email">
+    <input id="mentor" placeholder="Mentor">
+    <select id="programSelect"></select>
+    <select id="category">
+      <option>Professional</option>
+      <option>Entrepreneur</option>
+      <option>Student</option>
+    </select>
+    <input id="feedback" placeholder="Feedback">
+    <button onclick="addMember()">Add Member</button>
+  </div>
+
+  <!-- Table -->
+  <div class="table-container">
+    <table id="memberTable"></table>
+  </div>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
