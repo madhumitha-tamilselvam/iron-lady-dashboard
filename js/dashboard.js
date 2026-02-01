@@ -1,4 +1,4 @@
-// ================= INIT =================
+
 let members = JSON.parse(localStorage.getItem("members")) || [];
 let programs = JSON.parse(localStorage.getItem("programs")) || [
   "Leadership Essentials",
@@ -19,7 +19,6 @@ const memberTable = document.getElementById("memberTable");
 
 let programChart, mentoringChart;
 
-// ================= PROGRAMS =================
 function initPrograms() {
   programSelect.innerHTML = "";
   filterProgram.innerHTML = `<option value="">All Programs</option>`;
@@ -60,16 +59,16 @@ function removeProgram() {
   renderDashboard();
 }
 
-// ================= MEMBERS =================
+
 function addMember() {
-  // Get input fields
+
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
   const mentorInput = document.getElementById("mentor");
   const categoryInput = document.getElementById("category");
   const feedbackInput = document.getElementById("feedback");
 
-  // Create member object
+ 
   const member = {
     id: Date.now(),
     name: nameInput.value.trim(),
@@ -81,7 +80,7 @@ function addMember() {
     mentoringStatus: "Pending"
   };
 
-  // Validation
+  
   if (!member.name || !member.email) {
     return alert("Fill required fields");
   }
@@ -89,7 +88,7 @@ function addMember() {
   members.push(member);
   localStorage.setItem("members", JSON.stringify(members));
 
-  // Clear inputs
+ 
   nameInput.value = "";
   emailInput.value = "";
   mentorInput.value = "";
@@ -123,7 +122,7 @@ function updateField(id, field, value) {
   renderDashboard();
 }
 
-// ================= RENDER =================
+
 function renderDashboard() {
   let filtered = [...members]
     .sort((a, b) => b.id - a.id)
@@ -169,7 +168,7 @@ function renderDashboard() {
   updateCharts();
 }
 
-// ================= CHARTS =================
+
 function updateCharts() {
   if (programChart) programChart.destroy();
   programChart = new Chart(document.getElementById("programChart"), {
@@ -199,7 +198,6 @@ function updateCharts() {
   });
 }
 
-// ================= LOGOUT =================
 function logout() {
   window.location.href = "index.html";
 }
